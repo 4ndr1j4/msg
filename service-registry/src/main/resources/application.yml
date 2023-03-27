@@ -1,0 +1,11 @@
+server:
+    port: 9001
+spring:
+    application:
+        name: SERVICE-REGISTRY
+eureka:
+    client:
+        fetchRegistry: false
+        registerWithEureka: false
+    instance:
+        hostname: localhost

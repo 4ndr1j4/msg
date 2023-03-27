@@ -1,0 +1,1 @@
+./docker-compose-stop-and-remove-all.sh && ./docker-compose-build-all-and-start.sh
