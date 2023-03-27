@@ -1,20 +1,20 @@
-spring:
-  application:
-    name: API-GATEWAY
-  cloud:
-    gateway:
-      routes:
-        -   id: VAT-RATES-SERVICE
-            predicates:
-              - Path=/msg/vat-rates/**
-            uri: lb://VAT-RATES-SERVICE
-            filters:
-              - RewritePath=/msg/vat-rates/(?<segment>.*),/vat-rates/$\{segment}
-server:
-  port: 9000
-eureka:
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://localhost:9001/eureka/
+#spring:
+#  application:
+#    name: API-GATEWAY
+#  cloud:
+#    gateway:
+#      routes:
+#        -   id: VAT-RATES-SERVICE
+#            predicates:
+#              - Path=/msg/vat-rates/**
+#            uri: lb://VAT-RATES-SERVICE
+#            filters:
+#              - RewritePath=/msg/vat-rates/(?<segment>.*),/vat-rates/$\{segment}
+#server:
+#  port: 9000
+#eureka:
+#  client:
+#    fetch-registry: true
+#    register-with-eureka: true
+#    service-url:
+#      defaultZone: http://localhost:9001/eureka/
