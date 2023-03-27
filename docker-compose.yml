@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   service-registry:
-    container_name: SERVICE-REGISTRY
+    container_name: service-registry
     image: service-registry:latest
     build:
       dockerfile: ServiceRegistry.Dockerfile
@@ -21,7 +21,7 @@ services:
       retries: 10
 
   api-gateway:
-    container_name: API-GATEWAY
+    container_name: api-gateway
     image: api-gateway:latest
     build:
       dockerfile: ApiGateway.Dockerfile
@@ -44,7 +44,7 @@ services:
       retries: 10
 
   vat-rates:
-    container_name: VAT-RATES-SERVICE
+    container_name: vat-rates-service
     image: vat-rates-service:latest
     build:
       dockerfile: VatRates.Dockerfile

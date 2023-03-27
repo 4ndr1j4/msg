@@ -2,7 +2,7 @@ server:
   port: 9002
 spring:
   application:
-    name: VAT-RATES-SERVICE
+    name: vat-rates-service
 eu:
   vatrates:
     url: https://euvatrates.com/rates.json

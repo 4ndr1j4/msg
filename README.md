@@ -46,3 +46,14 @@ It is now hardcoded to these values but our generic api can be easily adopted an
 ### Running microservices without docker from IntelliJ
  * Just use profile 'DEV' because we will use localhost:port instead of SERVICE_NAME:port in this case
    and run them from main classes, the order is not important because services can be re-registered to eureka
+
+### Config server
+   * We use spring security so to curl application.yaml we need to specify
+     curl http://username:password@localhost:8888/config/{application-name}/{profile}/[{label-branch}]
+     {label-branch} is optional.
+     For our microservices we use:
+     *  curl http://root:1234@localhost:8888/config/api-gateway/dev/config-repo (without docker container)
+        curl http://root:1234@localhost:8888/config/api-gateway/default/config-repo
+
+ 
+

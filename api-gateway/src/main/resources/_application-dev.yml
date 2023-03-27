@@ -1,13 +1,13 @@
 #spring:
 #  application:
-#    name: API-GATEWAY
+#    name: api-gateway
 #  cloud:
 #    gateway:
 #      routes:
-#        -   id: VAT-RATES-SERVICE
+#        -   id: vat-rates-service
 #            predicates:
 #              - Path=/msg/vat-rates/**
-#            uri: lb://VAT-RATES-SERVICE
+#            uri: lb://vat-rates-service
 #            filters:
 #              - RewritePath=/msg/vat-rates/(?<segment>.*),/vat-rates/$\{segment}
 #server:
