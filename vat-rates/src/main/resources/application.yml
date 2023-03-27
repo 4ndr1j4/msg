@@ -1,18 +1,10 @@
-
 spring:
     application:
         name: vat-rates-service
+    config:
+        import: optional:configserver:http://config-server:8888/config
+    #   import: optional:configserver:http://root:1234@localhost:8888/config
 eu:
     vatrates:
         url: https://euvatrates.com/rates.json
-server:
-  port: 9002
-eureka:
-    client:
-        fetch-registry: true
-        register-with-eureka: true
-        service-url:
-            defaultZone: http://service-registry:9001/eureka/
-springdoc:
-    api-docs:
-        path: /api-docs
+

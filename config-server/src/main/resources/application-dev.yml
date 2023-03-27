@@ -13,7 +13,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://service-registry:9001/eureka/
+      defaultZone: http://localhost:9001/eureka/
 spring:
   application:
     name: config-server
@@ -25,12 +25,9 @@ spring:
     config:
       server:
         git:
-#          uri: file://${user.home}/IdeaProjects/msg-microservices/config-repo
-          uri: https://github.com/4ndr1j4/msg
+          uri: file://${user.home}/IdeaProjects/msg-microservices/config-repo
+          #uri: https://github.com/4ndr1j4/msg.git
           clone-on-start: true
-          default-label: config-repo
-          username: 4ndr1j4
-          password:
         default-label: config-repo
 
 #     server:

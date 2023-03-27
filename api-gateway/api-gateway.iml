@@ -135,6 +135,5 @@
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-config:4.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-config-client:4.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.14.2" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-bootstrap:4.0.1" level="project" />
   </component>
 </module>

@@ -1,6 +1,7 @@
 version: "3.9"
 
 services:
+
   service-registry:
     container_name: service-registry
     image: service-registry:latest
@@ -11,11 +12,32 @@ services:
     networks:
       - msg-network
     deploy:
-#      replicas: 1
       restart_policy:
         condition: on-failure
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9001/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  config-server:
+    container_name: config-server
+    image: config-server:latest
+    build:
+      dockerfile: ConfigServer.Dockerfile
+    ports:
+      - "8888:8888"
+    networks:
+      - msg-network
+    depends_on:
+      service-registry:
+        condition: service_healthy
+    deploy:
+      #      replicas: 1
+      restart_policy:
+        condition: on-failure
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8888/actuator/health" ]
       interval: 10s
       timeout: 5s
       retries: 10
@@ -30,11 +52,11 @@ services:
     networks:
       - msg-network
     depends_on:
-       service-registry:
-#         condition: service_started
-          condition: service_healthy
+      config-server:
+        condition: service_healthy
+      service-registry:
+        condition: service_healthy
     deploy:
-#      replicas: 1
       restart_policy:
         condition: on-failure
     healthcheck:
@@ -55,13 +77,11 @@ services:
     depends_on:
       service-registry:
         condition: service_healthy
-#         condition: service_started
+      config-server:
+        condition: service_healthy
       api-gateway:
         condition: service_healthy
-#        condition: service_started
-
     deploy:
-#      replicas: 1
       restart_policy:
         condition: on-failure
 

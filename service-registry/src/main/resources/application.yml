@@ -1,8 +1,8 @@
-server:
-    port: 9001
 spring:
     application:
         name: service-registry
+server:
+    port: 9001
 eureka:
     client:
         fetchRegistry: false

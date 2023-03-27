@@ -17,44 +17,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>snakeyaml</artifactId>
-                    <groupId>org.yaml</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <artifactId>snakeyaml</artifactId>
-            <groupId>org.yaml</groupId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <artifactId>guava</artifactId>-->
-<!--                    <groupId>com.google.guava</groupId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <artifactId>jakarta.inject-api</artifactId>-->
-<!--                    <groupId>jakarta.inject</groupId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <artifactId>servo-core</artifactId>-->
-<!--                    <groupId>com.netflix.servo</groupId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <artifactId>woodstox-core</artifactId>-->
-<!--                    <groupId>com.fasterxml.woodstox</groupId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 

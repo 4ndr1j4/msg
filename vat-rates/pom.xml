@@ -25,23 +25,16 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
-<!--			<exclusions>-->
-<!--				<exclusion>-->
-<!--					<artifactId>snakeyaml</artifactId>-->
-<!--					<groupId>org.yaml</groupId>-->
-<!--				</exclusion>-->
-<!--			</exclusions>-->
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
 
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-configuration-processor</artifactId>-->
-<!--			<optional>true</optional>-->
-<!--		</dependency>-->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -56,12 +49,6 @@
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>${springdoc-openapi-starter-webmvc-ui.version}</version>
-<!--			<exclusions>-->
-<!--				<exclusion>-->
-<!--					<artifactId>snakeyaml</artifactId>-->
-<!--					<groupId>org.yaml</groupId>-->
-<!--				</exclusion>-->
-<!--			</exclusions>-->
 		</dependency>
 		<dependency>
 			<groupId>${groupId}</groupId>
@@ -76,16 +63,6 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-<!--			<exclusions>-->
-<!--				<exclusion>-->
-<!--					<artifactId>guava</artifactId>-->
-<!--					<groupId>com.google.guava</groupId>-->
-<!--				</exclusion>-->
-<!--				<exclusion>-->
-<!--					<artifactId>servo-core</artifactId>-->
-<!--					<groupId>com.netflix.servo</groupId>-->
-<!--				</exclusion>-->
-<!--			</exclusions>-->
 		</dependency>
 	</dependencies>
 
