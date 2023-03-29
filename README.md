@@ -68,4 +68,6 @@
      config will be updated without need to reboot service or rebuild jar file
    * About actuator we have exposed only GET /actuator, GET /actuator/health (used for simple way for order of starting services in docker compose,
      no need for complex scripts) and POST /actuator/refresh needed for config server or manual update of properties.
-
+### Where is our code
+   * Our code is stored at github: https://github.com/4ndr1j4/msg
+   * An config for services: https://github.com/4ndr1j4/msg-repo

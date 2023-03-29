@@ -2,24 +2,6 @@ version: "3.9"
 
 services:
 
-  service-registry:
-    container_name: service-registry
-    image: service-registry:latest
-    build:
-      dockerfile: ServiceRegistry.Dockerfile
-    ports:
-      - "9001:9001"
-    networks:
-      - msg-network
-    deploy:
-      restart_policy:
-        condition: on-failure
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9001/actuator/health"]
-      interval: 10s
-      timeout: 5s
-      retries: 10
-
   config-server:
     container_name: config-server
     image: config-server:latest
@@ -29,14 +11,32 @@ services:
       - "8888:8888"
     networks:
       - msg-network
-    depends_on:
-      service-registry:
-        condition: service_healthy
     deploy:
       restart_policy:
         condition: on-failure
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8888/config/actuator/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  service-registry:
+    container_name: service-registry
+    image: service-registry:latest
+    build:
+      dockerfile: ServiceRegistry.Dockerfile
+    ports:
+      - "9001:9001"
+    networks:
+      - msg-network
+    depends_on:
+      config-server:
+        condition: service_healthy
+    deploy:
+      restart_policy:
+        condition: on-failure
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9001/actuator/health"]
       interval: 10s
       timeout: 5s
       retries: 10

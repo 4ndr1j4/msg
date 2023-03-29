@@ -1,11 +1,5 @@
 spring:
     application:
         name: service-registry
-server:
-    port: 9001
-eureka:
-    client:
-        fetchRegistry: false
-        registerWithEureka: false
-    instance:
-        hostname: localhost
+    config:
+        import: optional:configserver:http://config-server:8888/config
