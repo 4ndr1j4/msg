@@ -25,13 +25,13 @@ spring:
     config:
       server:
         git:
-#          uri: file://${user.home}/IdeaProjects/msg-microservices/config-repo
-          uri: https://github.com/4ndr1j4/msg
+          uri: file://${user.home}/IdeaProjects/msg/config-repo/
           clone-on-start: true
-          default-label: config-repo
-          username: 4ndr1j4
-          password:
-        default-label: config-repo
+#          uri: https://github.com/4ndr1j4/msg-repo
+#          clone-on-start: true
+#          default-label: config-repo
+#          username: 4ndr1j4
+#          password:
 
 #     server:
 #       git:

@@ -1,14 +1,8 @@
-server:
-  port: 9002
+#server:
+#  port: 9002
 spring:
   application:
     name: vat-rates-service
   config:
     import: optional:configserver:http://localhost:8888/config
   #   import: optional:configserver:http://root:1234@localhost:8888/config
-eureka:
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://localhost:9001/eureka/

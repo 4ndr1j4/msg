@@ -16,9 +16,15 @@
 * It is posible to monitor our instances using eureka service discovery and registry:
   * http://localhost:9001/
 
-We have also posibility to use other parameters like Country groups for rates, type of rates, sort and limit returned results, 
-also we can choose what format we will use for country codes.
-It is now hardcoded to these values but our generic api can be easily adopted and modified
+  We have also posibility to use other parameters like Country groups for rates, type of rates, sort and limit returned results, 
+  also we can choose what format we will use for country codes.
+  It is now hardcoded to these values but our generic api can be easily adopted and modified, actually we have commented out
+  our generic api in base controller, just comment it out and you can call for example:
+    * http://localhost:9002/vat-rates/eu/reduced/highest/10
+    * http://localhost:9002/vat-rates/eu/standard/lowest/2
+  Vat-rates service is designed for easy future changes, we can use other rates than standard or reduced, even other ISO or EU standard for country code,
+  even for other groups of countries, just we need external api and maybe recreating external response with different fields, other than that our basic controller
+  can be just extended, mapper and adapter should be generic and almost all other parts of this app.
 
 
 ### How to start and stop msg-microservices
@@ -55,5 +61,11 @@ It is now hardcoded to these values but our generic api can be easily adopted an
      *  curl http://root:1234@localhost:8888/config/api-gateway/dev/config-repo (without docker container)
         curl http://root:1234@localhost:8888/config/api-gateway/default/config-repo
 
- 
+### Config server
+   * Our configuration is in separate repo: msg-repo stored in dir msg/config-repo locally
+     when we update configuration.yml for one service we must commit and push it to git 4ndr1ja/msg-repo
+     then call  curl -X POST  http://localhost:9002/actuator/refresh for example, 9002 port is used for vat-rates service
+     config will be updated without need to reboot service or rebuild jar file
+   * About actuator we have exposed only GET /actuator, GET /actuator/health (used for simple way for order of starting services in docker compose,
+     no need for complex scripts) and POST /actuator/refresh needed for config server or manual update of properties.
 

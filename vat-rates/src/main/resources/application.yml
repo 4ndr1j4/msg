@@ -3,8 +3,7 @@ spring:
         name: vat-rates-service
     config:
         import: optional:configserver:http://config-server:8888/config
-    #   import: optional:configserver:http://root:1234@localhost:8888/config
+#        import: optional:configserver:http://root:1234@localhost:8888/config
 eu:
     vatrates:
         url: https://euvatrates.com/rates.json
-
