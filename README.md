@@ -61,7 +61,9 @@
 
 ### Running microservices without docker from IntelliJ
  * Just use profile 'DEV' because we will use localhost:port instead of SERVICE_NAME:port in this case
-   and run them from main classes, the order is not important because services can be re-registered to eureka
+   and run them from main classes, the order is not important because services can be re-registered to eureka.
+ * also when running this way config-server should first be started, be careful of the path in it:
+   cloud.config.server.native.uri: file://${user.home}/IdeaProjects/msg/config-repo/ when using local repo and not git.
 
 ### Config server
    * We use spring security so to curl application.yaml we need to specify
@@ -97,6 +99,7 @@
     * improving logs and adding log aggregation (Elasticsearch, Kibana, Logstash.. for example)
     * we could introduce User microservice with DB (Postgres for example) if we would have more sensitive data
     * making docker images smaller and more secure (we use alpine now and it is good but not best solution)
+    * creating local git repo for config as microservice
     * compresing jars to make images smaller...
 
 ### Contact info
