@@ -1,4 +1,14 @@
-# Getting Started
+# Quick start
+ * Create msg directory in Idea projects dir and inside it make msg-services and config-repo directories (optional)
+ * inside first dir (/msg/msg-services) execute: git clone git@github.com:4ndr1j4/msg.git
+ * inside second one (/msg/config-repo): git clone git@github.com:4ndr1j4/msg-repo.git (optional: for running without containers from IntelliJ)
+ * run script from /msg-services: ./[docker-compose-build-all-and-start.sh](docker-compose-build-all-and-start.sh)
+ * other times if you want to clean everything(jars,images,networks...) and fresh build all run: [clean-all-and-start.sh](clean-all-and-start.sh) 
+ * tests should pass while building jars, go to following links to check does it work as expected:
+   * http://localhost:9000/msg/vat-rates/eu/reduced/lowest/3 and
+   * http://localhost:9000/msg/vat-rates/eu/standard/highest/3
+ * That's it! :)
+
 
 ### REST API Endpoints Documentation
 
@@ -68,6 +78,29 @@
      config will be updated without need to reboot service or rebuild jar file
    * About actuator we have exposed only GET /actuator, GET /actuator/health (used for simple way for order of starting services in docker compose,
      no need for complex scripts) and POST /actuator/refresh needed for config server or manual update of properties.
+
 ### Where is our code
    * Our code is stored at github: https://github.com/4ndr1j4/msg
    * An config for services: https://github.com/4ndr1j4/msg-repo
+
+   * pull project and repo using https:
+     * git clone https://github.com/4ndr1j4/msg.git
+     * git clone https://github.com/4ndr1j4/msg-repo.git (needed only if we want to start services from IntelliJ)
+   * Or using shh: 
+     * git clone git@github.com:4ndr1j4/msg.git and 
+     * git clone git@github.com:4ndr1j4/msg-repo.git
+
+### To do
+  * There are much things that can be improved:
+    * enabling spring security
+    * using Vault key-value db for storing sensitive data(instead of git repo)
+    * improving logs and adding log aggregation (Elasticsearch, Kibana, Logstash.. for example)
+    * we could introduce User microservice with DB (Postgres for example) if we would have more sensitive data
+    * making docker images smaller and more secure (we use alpine now and it is good but not best solution)
+    * compresing jars to make images smaller...
+
+### Contact info
+    
+   If you encounter any issues with this project be free to contact me: 
+   * 1andrija.petrovic@gmail.com
+   * +381611889684
