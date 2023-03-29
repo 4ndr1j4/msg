@@ -8,6 +8,10 @@ management:
       enabled: true
     readinessstate:
       enabled: true
+#  endpoints:
+#    web:
+#      exposure:
+#        include: health,refresh
 eureka:
   client:
     fetch-registry: true
@@ -25,14 +29,9 @@ spring:
     config:
       server:
         git:
-          uri: file://${user.home}/IdeaProjects/msg/config-repo/
+          uri: https://github.com/4ndr1j4/msg-repo
           clone-on-start: true
-#          uri: https://github.com/4ndr1j4/msg-repo
-#          clone-on-start: true
-#          default-label: config-repo
-#          username: 4ndr1j4
-#          password:
+          basedir: /opt/msg-repo
+          force-pull: true
+#          uri: file://${user.home}/IdeaProjects/msg/config-repo/
 
-#     server:
-#       git:
-#         uri: https://github.com/4ndr1j4/msg.git

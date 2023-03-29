@@ -34,7 +34,7 @@
       then use script: 
         ./docker-compose-build-all-and-start.sh
 
-  * We can also build all without starting containers with this script:
+  * We can also build all without starting containers with this script(first chmod +x ./docker-compose-build-all-and-start.sh if needed):
     ./docker-compose-build-all.sh
 
     * And we can stop containers without deleting anything using:
